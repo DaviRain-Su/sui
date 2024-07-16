@@ -2490,9 +2490,15 @@ impl ProtocolConfig {
                     }
                     cfg.feature_flags.enable_coin_deny_list_v2 = true;
                 }
-                54 => {
+                53 => {
                     // Do not allow bridge committee to finalize on mainnet.
                     cfg.bridge_should_try_to_finalize_committee = Some(chain != Chain::Mainnet);
+                }
+                54 => {
+                    cfg.feature_flags.random_beacon = false;
+                    cfg.random_beacon_reduction_lower_bound = Some(1600);
+                    cfg.random_beacon_dkg_timeout_round = Some(3000);
+                    cfg.random_beacon_min_round_interval_ms = Some(500);
                 }
                 // Use this template when making changes:
                 //
