@@ -57,7 +57,7 @@ impl<T> ArenaPointer<T> {
         ArenaPointer(value)
     }
 
-    pub fn to_const<'a>(&self) -> *const T {
+    pub fn to_const(&self) -> *const T {
         self.0
     }
 
